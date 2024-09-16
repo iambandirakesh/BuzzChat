@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const messageSchemaa = new mongoose.Schema(
+const messageSchema = new mongoose.Schema(
   {
     text: {
       type: String,
@@ -17,10 +17,18 @@ const messageSchemaa = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    msgByUserId: {
+      type: mongoose.Schema.ObjectId,
+      required: true,
+      ref: "User",
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
-const conversionSchema = new mongoose.Schema(
+
+const conversationSchema = new mongoose.Schema(
   {
     sender: {
       type: mongoose.Schema.ObjectId,
@@ -39,8 +47,13 @@ const conversionSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
-const MessageModel = mongoose.model("Message", messageSchemaa);
-const ConversionModel = mongoose.model("Conversion", conversionSchema);
-export default { ConversionModel, MessageModel };
+
+export const MessageModel = mongoose.model("Message", messageSchema);
+export const ConversationModel = mongoose.model(
+  "Conversation",
+  conversationSchema
+);
