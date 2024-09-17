@@ -75,8 +75,9 @@ export const login = async (req, res) => {
       expiresIn: "1d",
     });
     const cookieOptions = {
-      http: true,
+      httpOnly: true,
       secure: true,
+      sameSite: "None",
     };
     return res.cookie("token", token, cookieOptions).status(200).json({
       success: true,
