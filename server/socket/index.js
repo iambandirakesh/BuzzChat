@@ -13,7 +13,7 @@ export const app = express();
 export const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://buzzchat-frontend-9m6r.onrender.com",
     credentials: true,
   },
 });

@@ -10,7 +10,7 @@ dotenv.config();
 // const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://buzzchat-frontend-9m6r.onrender.com",
     credentials: true,
   })
 );
