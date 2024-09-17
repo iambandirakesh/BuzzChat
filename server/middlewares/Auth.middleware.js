@@ -2,7 +2,8 @@ import jwt from "jsonwebtoken";
 import UserModel from "../models/user.model.js";
 
 export const AuthMiddleware = async (req, res, next) => {
-  const token = req.cookies.token || "";
+  console.log(req.cookies.token);
+  const token = req.cookies.token || localStorage.getItem("token") || "";
   try {
     if (!token) {
       return res.status(401).json({
