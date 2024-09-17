@@ -3,7 +3,7 @@ import UserModel from "../models/user.model.js";
 
 export const AuthMiddleware = async (req, res, next) => {
   console.log(req.cookies.token);
-  const token = req.cookies.token || localStorage.getItem("token") || "";
+  const token = req.cookies.token || "";
   try {
     if (!token) {
       return res.status(401).json({
